@@ -1,0 +1,53 @@
+.list-bottom {
+  font-size: 1.5rem;
+  color: var(--status);
+  padding: 1.5rem 2rem;
+  display: flex;
+}
+
+.item-status {
+  font-weight: 700;
+  margin-left: auto;
+  display: flex;
+  gap: 2rem;
+}
+
+.clear {
+  margin-left: auto;
+}
+
+.all,
+.active,
+.completed,
+.clear {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.all:hover,
+.active:hover,
+.completed:hover,
+.clear:hover {
+  color: var(--hover);
+}
+
+@media (max-width: 26.57em) {
+  .list-bottom {
+    position: relative;
+  }
+
+  .item-status {
+    position: absolute;
+    top: 6rem;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    justify-content: center;
+  }
+
+  .instruction {
+    margin-top: 12rem;
+  }
+}

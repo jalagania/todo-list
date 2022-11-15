@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import Filter from "./Filter";
 import "./List.css";
 import ListItem from "./ListItem";
 
@@ -90,8 +91,8 @@ function List() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="input-box">
+    <div>
+      <form className="input-box" onSubmit={handleSubmit}>
         <button className="check-box"></button>
         <input
           type="text"
@@ -100,7 +101,7 @@ function List() {
           value={inputValue}
           onChange={handleInputChange}
         />
-      </div>
+      </form>
       <div className="todo-list-box">
         <DragDropContext onDragEnd={handleOnDragEnd}>
           <Droppable droppableId="todo-list">
@@ -128,40 +129,18 @@ function List() {
             )}
           </Droppable>
         </DragDropContext>
-        <div className="list-bottom">
-          <p className="items-left">
-            <span className="number">{itemAmount}</span>
-            <span className="item"> {itemText}</span> left
-          </p>
-          <div className="item-status">
-            <p
-              className={`all ${selected === "all" ? "selected" : ""}`}
-              onClick={handleAllClick}
-            >
-              All
-            </p>
-            <p
-              className={`active ${selected === "active" ? "selected" : ""}`}
-              onClick={handleActiveClick}
-            >
-              Active
-            </p>
-            <p
-              className={`completed ${
-                selected === "completed" ? "selected" : ""
-              }`}
-              onClick={handleCompletedClick}
-            >
-              Completed
-            </p>
-          </div>
-          <p className="clear" onClick={handleClearCompletedClick}>
-            Clear Completed
-          </p>
-        </div>
+        <Filter
+          itemAmount={itemAmount}
+          itemText={itemText}
+          selected={selected}
+          handleAllClick={handleAllClick}
+          handleActiveClick={handleActiveClick}
+          handleCompletedClick={handleCompletedClick}
+          handleClearCompletedClick={handleClearCompletedClick}
+        />
       </div>
       <p className="instruction">Drag and drop to reorder list</p>
-    </form>
+    </div>
   );
 }
 
