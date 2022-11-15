@@ -1,13 +1,69 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --blue: #3a7bfd;
+  --cyan: #57ddff;
+  --violet: #c058f3;
+  --gradient: linear-gradient(135deg, #57ddff, #c058f3);
+  --main-bg: #fafafa;
+  --inner-bg: white;
+  --text: black;
+  --lines: #e4e5f1;
+  --completed: #d2d3db;
+  --status: #9394a5;
+  --hover: #484b6a;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 10px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.8rem;
+  background-image: url(./images/bg-desktop-light.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-color: var(--main-bg);
+}
+
+.dark-theme {
+  --blue: #3a7bfd;
+  --cyan: #57ddff;
+  --violet: #c058f3;
+  --gradient: linear-gradient(135deg, #57ddff, #c058f3);
+  --main-bg: #161722;
+  --inner-bg: #25273c;
+  --text: white;
+  --lines: #393a4c;
+  --completed: #4d5066;
+  --status: #777a92;
+  --hover: #e4e5f1;
+  background-image: url(./images/bg-desktop-dark.jpg);
+}
+
+@media (max-width: 26.57em) {
+  html {
+    font-size: 54%;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.finished {
+  color: var(--completed);
+  text-decoration: line-through;
+}
+
+.selected {
+  color: var(--blue);
 }

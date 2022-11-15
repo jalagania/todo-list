@@ -1,0 +1,133 @@
+.input-box {
+  background-color: var(--inner-bg);
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.gradient-wrapper {
+  height: 2.6rem;
+  width: 2.6rem;
+  border-radius: 50%;
+  background-image: var(--gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-box {
+  height: 2.2rem;
+  width: 2.2rem;
+  background-color: var(--inner-bg);
+  border-radius: 50%;
+  border: 2px solid var(--lines);
+  box-sizing: content-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-check {
+  pointer-events: none;
+}
+
+input {
+  width: 90%;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--text);
+  background-color: var(--inner-bg);
+  border: none;
+  outline: none;
+}
+
+input::-moz-placeholder {
+  color: var(--status);
+}
+
+input:-ms-input-placeholder {
+  color: var(--status);
+}
+
+input::placeholder {
+  color: var(--status);
+}
+
+.todo-list-box {
+  color: var(--text);
+  background-color: var(--inner-bg);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.05);
+}
+
+.todo-list .check-box {
+  cursor: pointer;
+}
+
+.list-item:hover .check-box {
+  border: 0;
+}
+
+.list-bottom {
+  font-size: 1.5rem;
+  color: var(--status);
+  padding: 1.5rem 2rem;
+  display: flex;
+}
+
+.item-status {
+  font-weight: 700;
+  margin-left: auto;
+  display: flex;
+  gap: 2rem;
+}
+
+.clear {
+  margin-left: auto;
+}
+
+.all,
+.active,
+.completed,
+.clear {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.all:hover,
+.active:hover,
+.completed:hover,
+.clear:hover {
+  color: var(--hover);
+}
+
+.instruction {
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--status);
+  margin: 5rem 0 3rem 0;
+}
+
+@media (max-width: 26.57em) {
+  .list-bottom {
+    position: relative;
+  }
+
+  .item-status {
+    position: absolute;
+    top: 6rem;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    justify-content: center;
+  }
+
+  .instruction {
+    margin-top: 12rem;
+  }
+}

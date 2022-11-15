@@ -1,0 +1,41 @@
+.list-item {
+  list-style: none;
+  padding: 2rem;
+  border-bottom: 1px solid var(--lines);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.list-item:hover .icon-cross {
+  display: block;
+}
+
+.list-text {
+  width: 80%;
+}
+
+.remove {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.remove:hover .icon-cross {
+  fill: var(--blue);
+}
+
+.icon-cross {
+  fill: #494c6b;
+  display: none;
+  pointer-events: none;
+}
+
+.transparent {
+  background-color: transparent;
+  border: 2px solid transparent;
+}
+
+.border {
+  border-bottom: 1px solid var(--blue);
+}

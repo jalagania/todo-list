@@ -1,0 +1,21 @@
+header {
+  margin-bottom: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.4rem;
+  color: white;
+}
+
+.icon-theme-wrapper {
+  cursor: pointer;
+}
+
+.icon-theme {
+  pointer-events: none;
+}
