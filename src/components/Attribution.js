@@ -1,4 +1,4 @@
-import styles from "./Attribution.css";
+import "./Attribution.css";
 
 function Attribution() {
   return (
