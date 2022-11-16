@@ -84,10 +84,10 @@ function List() {
 
   function handleOnDragEnd(result) {
     if (!result.destination) return;
-    const updatedItems = Array.from(filteredList);
+    const updatedItems = Array.from(listItems);
     const [reorderedItem] = updatedItems.splice(result.source.index, 1);
     updatedItems.splice(result.destination.index, 0, reorderedItem);
-    setFilteredList(updatedItems);
+    setListItems(updatedItems);
   }
 
   return (
