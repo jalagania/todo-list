@@ -6,15 +6,26 @@ import ListItem from "./ListItem";
 
 function List() {
   const [inputValue, setInputValue] = useState("");
-  const [listItems, setListItems] = useState([]);
+  const [listItems, setListItems] = useState(getLocalList());
   const [filteredList, setFilteredList] = useState([]);
   const [itemAmount, setItemAmount] = useState(0);
   const [itemText, setItemText] = useState("item");
   const [selected, setSelected] = useState("all");
 
+  // Set List To Local Storage
   useEffect(() => {
+    localStorage.setItem("LOCAL_LIST", JSON.stringify(listItems));
     setFilteredList(listItems);
   }, [listItems]);
+
+  // Get List From Local Storage
+  function getLocalList() {
+    const localList = JSON.parse(localStorage.getItem("LOCAL_LIST"));
+    if (!localList) {
+      return [];
+    }
+    return localList;
+  }
 
   // Add New List Item
   function handleSubmit(event) {
