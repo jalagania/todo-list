@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import Filter from "./Filter";
 import "./List.css";
 import ListItem from "./ListItem";
@@ -10,7 +10,7 @@ function List() {
   const [filteredList, setFilteredList] = useState([]);
   const [itemAmount, setItemAmount] = useState(0);
   const [itemText, setItemText] = useState("item");
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState("all");
 
   useEffect(() => {
     setFilteredList(listItems);
@@ -57,25 +57,33 @@ function List() {
 
   // Show All Items
   function handleAllClick() {
-    setFilteredList(listItems);
     setSelected("all");
   }
 
   // Show Active Items
   function handleActiveClick() {
-    setFilteredList(listItems.filter((item) => item.completed === false));
     setSelected("active");
   }
 
   // Show Completed
   function handleCompletedClick() {
-    setFilteredList(listItems.filter((item) => item.completed === true));
     setSelected("completed");
   }
 
   // Clear Completed
   function handleClearCompletedClick() {
     setListItems(listItems.filter((item) => item.completed === false));
+  }
+
+  //   Render List Items On Clicking Filter Buttons
+  function renderList() {
+    if (selected === "active") {
+      return listItems.filter((item) => item.completed === false);
+    }
+    if (selected === "completed") {
+      return listItems.filter((item) => item.completed === true);
+    }
+    return filteredList;
   }
 
   function handleInputChange(event) {
@@ -111,7 +119,7 @@ function List() {
                 {...provided.droppableProps}
                 ref={provided.innerRef}
               >
-                {filteredList.map((item, index) => {
+                {renderList().map((item, index) => {
                   return (
                     <ListItem
                       key={item.id}
